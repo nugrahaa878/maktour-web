@@ -11,37 +11,37 @@ const GallerySection = () => {
   const [images] = useState<GalleryImage[]>([
     {
       id: 1,
-      src: '/src/assets/images/gallery-1.jpg',
+      src: '/src/assets/gallery-1.jpg',
       title: 'Masjid Al-Haram',
       description: 'Pilgrims performing Tawaf around the Kaaba'
     },
     {
       id: 2,
-      src: '/src/assets/images/gallery-2.jpg',
+      src: '/src/assets/gallery-2.jpg',
       title: 'Madinah Visit',
       description: 'Group visit to Masjid An-Nabawi'
     },
     {
       id: 3,
-      src: '/src/assets/images/gallery-3.jpg',
+      src: '/src/assets/gallery-3.jpg',
       title: 'Mount Arafat',
       description: 'Day of Arafah during Hajj'
     },
     {
       id: 4,
-      src: '/src/assets/images/gallery-4.jpg',
+      src: '/src/assets/gallery-4.jpg',
       title: 'Mina Stay',
       description: 'Accommodations during the days of Tasyrik'
     },
     {
       id: 5,
-      src: '/src/assets/images/gallery-5.jpg',
+      src: '/src/assets/gallery-5.jpg',
       title: 'Group Prayer',
       description: 'Congregational prayer at sacred sites'
     },
     {
       id: 6,
-      src: '/src/assets/images/gallery-7.jpg',
+      src: '/src/assets/gallery-7.jpg',
       title: 'Ziarah Tour',
       description: 'Visiting historical Islamic sites'
     },
