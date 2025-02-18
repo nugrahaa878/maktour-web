@@ -1,4 +1,7 @@
 import { FC } from 'react';
+import mekah1 from '/src/assets/mekah-1.jpg';
+import mekah2 from '/src/assets/mekah-2.jpg';
+import mekah3 from '/src/assets/mekah-3.jpg';
 
 interface PackageFeature {
   icon: string;
@@ -16,7 +19,7 @@ interface Package {
 const packages: Package[] = [
   {
     title: 'Premium Hajj Package',
-    image: '/src/assets/mekah-1.jpg',
+    image: mekah1,
     description: 'Experience the ultimate Hajj journey with premium accommodations and dedicated services',
     price: 'Starting from $8,999',
     features: [
@@ -27,7 +30,7 @@ const packages: Package[] = [
   },
   {
     title: 'Standard Umrah Package',
-    image: '/src/assets/mekah-2.jpg',
+    image: mekah2,
     description: 'Complete your Umrah with our comprehensive and comfortable package',
     price: 'Starting from $3,999',
     features: [
@@ -38,7 +41,7 @@ const packages: Package[] = [
   },
   {
     title: 'Family Umrah Package',
-    image: '/src/assets/mekah-3.jpg',
+    image: mekah3,
     description: 'Special package designed for families with children-friendly accommodations',
     price: 'Starting from $12,999',
     features: [
