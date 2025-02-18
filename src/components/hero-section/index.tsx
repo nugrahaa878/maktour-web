@@ -1,10 +1,11 @@
 import { FC } from 'react';
+import heroImage from '../../assets/hero.jpg';
 
 const HeroSection: FC = () => {
   return (
     <section className="relative h-[600px] overflow-hidden">
       <div className="absolute inset-0">
-        <img src="/src/assets/hero.jpg" alt="Hero Background" className="w-full h-full object-cover" />
+        <img src={heroImage} alt="Hero Background" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-black/50"></div>
       </div>
 
