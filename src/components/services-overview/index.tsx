@@ -37,7 +37,8 @@ const ServicesOverview: FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {/* Desktop Grid View */}
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => (
             <div
               key={index}
@@ -56,6 +57,30 @@ const ServicesOverview: FC = () => {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Mobile Horizontal Scroll */}
+        <div className="md:hidden w-full overflow-x-auto pb-6 -mx-4 px-4 scrollbar-hide">
+          <div className="flex space-x-4 w-max">
+            {services.map((service, index) => (
+              <div
+                key={index}
+                className="flex-none w-72 bg-white p-6 rounded-lg shadow-md"
+              >
+                <div className="flex flex-col items-center text-center">
+                  <div className="w-16 h-16 flex items-center justify-center bg-emerald-100 rounded-full mb-4">
+                    <service.icon className="w-8 h-8 text-emerald-600" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                    {service.title}
+                  </h3>
+                  <p className="text-gray-600">
+                    {service.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

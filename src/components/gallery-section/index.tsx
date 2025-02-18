@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 interface GalleryImage {
   id: number;
@@ -48,10 +48,27 @@ const GallerySection = () => {
   ]);
 
   const [loaded, setLoaded] = useState<Set<number>>(new Set());
+  const [isPaused, setIsPaused] = useState(false);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   const handleImageLoad = (id: number) => {
     setLoaded(prev => new Set([...prev, id]));
   };
+
+  useEffect(() => {
+    const scrollContainer = scrollContainerRef.current;
+    if (!scrollContainer || isPaused) return;
+
+    const scrollInterval = setInterval(() => {
+      if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth - scrollContainer.clientWidth) {
+        scrollContainer.scrollLeft = 0;
+      } else {
+        scrollContainer.scrollLeft += 1;
+      }
+    }, 30);
+
+    return () => clearInterval(scrollInterval);
+  }, [isPaused]);
 
   return (
     <section className="py-16 px-4 bg-gray-50">
@@ -63,7 +80,7 @@ const GallerySection = () => {
           Explore the memorable moments from our previous Hajj and Umrah journeys, where faith and community come together in the holy lands.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {images.map((image) => (
             <div
               key={image.id}
@@ -84,6 +101,39 @@ const GallerySection = () => {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Mobile Horizontal Scroll Gallery */}
+        <div
+          ref={scrollContainerRef}
+          className="md:hidden w-full overflow-x-auto pb-6 -mx-4 px-4 scrollbar-hide"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+          onTouchStart={() => setIsPaused(true)}
+          onTouchEnd={() => setIsPaused(false)}
+        >
+          <div className="flex space-x-4 w-max">
+            {images.map((image) => (
+              <div
+                key={image.id}
+                className="relative flex-none w-80 overflow-hidden rounded-lg shadow-lg aspect-[4/3]"
+              >
+                <img
+                  src={image.src}
+                  alt={image.title}
+                  className={`w-full h-full object-cover ${loaded.has(image.id) ? 'opacity-100' : 'opacity-0'}`}
+                  onLoad={() => handleImageLoad(image.id)}
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent">
+                  <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
+                    <h3 className="text-xl font-semibold mb-2">{image.title}</h3>
+                    <p className="text-sm">{image.description}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
