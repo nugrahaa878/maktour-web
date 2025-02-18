@@ -3,6 +3,8 @@ import HeroSection from '../../components/hero-section';
 import PackageHighlights from 'components/package-highlights';
 import ServicesOverview from 'components/services-overview';
 import GallerySection from 'components/gallery-section';
+import VisaRequirements from 'components/visa-requirements';
+import Footer from 'components/footer';
 
 function HomePage() {
   return (
@@ -12,9 +14,8 @@ function HomePage() {
       <PackageHighlights />
       <ServicesOverview />
       <GallerySection />
-      <footer className="mt-auto py-4">
-        {/* Footer content */}
-      </footer>
+      <VisaRequirements />
+      <Footer />
     </main>
   );
 }
