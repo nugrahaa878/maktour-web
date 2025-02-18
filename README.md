@@ -1,102 +1,88 @@
-<p align='center'>
-  <img src='https://i.imgur.com/KVmyXyo.png' alt='Vital - Vite Starter Template' width='600'/>
-</p>
+# Maktour Customer Website
 
-<p align='center'>
-Mocking up web app with <b>Vital</b><sup><em>(speed)</em></sup><br>
-</p>
+A modern web application for Maktour customers built with React, TypeScript, and Vite.
 
-<br>
+## Tech Stack
 
-<p align='center'>
-<a href="https://vital.josepvidal.dev">Live Demo</a>
-</p>
+- [Vite](https://vitejs.dev/) - Next Generation Frontend Tooling
+- [React](https://reactjs.org/) - A JavaScript library for building user interfaces
+- [TypeScript](https://www.typescriptlang.org/) - JavaScript with syntax for types
+- [Tailwind CSS](https://tailwindcss.com/) - A utility-first CSS framework
+- [ESLint](https://eslint.org/) - For finding and fixing code problems
+- [Prettier](https://prettier.io/) - Code formatter
 
-<br>
+## Project Structure
 
-## Features
+The project follows the Atomic Design methodology for component organization:
 
-- ⚡️ [React 18](https://beta.reactjs.org/)
-- 🦾 TypeScript, of course
-- 🎨 [Tailwind](https://tailwindcss.com/) - next generation utility-first CSS
-- 👑 [Atomic Design organization](https://bradfrost.com/blog/post/atomic-web-design/)
-- 🗂 [Relative imports](https://github.com/vitejs/vite/issues/88#issuecomment-762415200)
-- 😃 [Hero icons](https://heroicons.com/)
-- ☁️ Deploy on Netlify, zero-config
-
-### Coding Style
-
-- [ESLint](https://eslint.org/) - configured for React/Hooks & TypeScript
-- [Prettier](https://prettier.io/)
-
-### Dev tools
-
-- [TypeScript](https://www.typescriptlang.org/)
-- [Netlify](https://www.netlify.com/) - zero-config deployment
-
-## Try it now!
-
-### GitHub Template
-
-[Create a repo from this template on GitHub](https://github.com/jvidalv/vital/generate).
-
-### Clone to local
-
-If you prefer to do it manually with the cleaner git history
-
-```bash
-npx degit jvidalv/vital my-vital-app
-cd my-vital-app
-yarn # If you don't have yarn installed, run: npm install -g yarn
+```
+src/
+├── components/
+│   ├── atoms/      # Basic building blocks (buttons, inputs, etc.)
+│   ├── molecules/  # Groups of atoms (form fields, etc.)
+│   └── organisms/  # Complex components (headers, forms, etc.)
+├── app/
+│   └── app.tsx     # Main application component
+└── main.tsx        # Application entry point
 ```
 
-## Checklist
+## Prerequisites
 
-When you use this template, try follow the checklist to update your info properly
+- Node.js (v14 or higher)
+- Yarn package manager
 
-- [ ] Rename `name` and `author` fields in `package.json`
-- [ ] Change the author name in `LICENSE`
-- [ ] Change the title in `index.html`
-- [ ] Change the favicon in `public`
-- [ ] Modify the manifest in `public`
-- [ ] Clean up the README's
+## Getting Started
 
-And, enjoy :)
+1. Clone the repository
 
-## Usage
+```bash
+git clone [repository-url]
+cd maktour-web
+```
 
-### Development
+2. Install dependencies
 
-Just run and visit http://127.0.0.1:3000/
+```bash
+yarn install
+```
+
+3. Start the development server
 
 ```bash
 yarn dev
 ```
 
-### Build
-
-To build the App, run
+4. Build for production
 
 ```bash
 yarn build
 ```
 
-And you will see the generated file in `dist` that ready to be served.
+## Development
 
-### Deploy on Netlify
+### Code Style
 
-Go to [Netlify](https://app.netlify.com/start) and select your repository, `OK` along the way, and your App will be live in a minute.
+The project uses ESLint and Prettier for code formatting and maintaining code quality. Configuration files are included in the project root:
 
-### Issues
+- `eslint.config.js` - ESLint configuration
+- `prettier.config.js` - Prettier configuration
 
-#### Husky
+### Atomic Design
 
-If pre-commit hooks are not working be sure that you have installed husky: `husky install`.
+The project implements the Atomic Design methodology for component organization:
 
-By default this command should be triggered after yarn/npm deps are installed.
+- **Atoms**: Basic building blocks of matter, such as buttons, inputs, and text elements
+- **Molecules**: Groups of atoms bonded together, like a form label, search input, and button
+- **Organisms**: Complex UI components composed of groups of molecules and/or atoms
 
-## Why
+## Scripts
 
-I have created several React apps recently. Setting the configs up is kinda the bottleneck for me to make the ideas simply come true within a very short time.
+- `yarn dev` - Start development server
+- `yarn build` - Build for production
+- `yarn preview` - Preview production build
+- `yarn lint` - Run ESLint
+- `yarn format` - Format code with Prettier
 
-So I made this starter template for myself to create apps more easily, along with some good practices that I have learned from making those apps. Feel free to tweak it or even maintains your own forks.
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
