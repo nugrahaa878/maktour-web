@@ -1,4 +1,5 @@
 import { StrictMode } from 'react'
+import { StaticRouter } from 'react-router-dom/server'
 import {
   type RenderToPipeableStreamOptions,
   renderToPipeableStream,
@@ -8,7 +9,9 @@ import App from './app'
 export function render(_url: string, options?: RenderToPipeableStreamOptions) {
   return renderToPipeableStream(
     <StrictMode>
-      <App />
+      <StaticRouter location={_url}>
+        <App />
+      </StaticRouter>
     </StrictMode>,
     options,
   )

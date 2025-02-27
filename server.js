@@ -35,12 +35,9 @@ if (!isProduction) {
 }
 
 // Serve HTML
-app.use('*all', async (req, res) => {
-  console.log('999 masuk sini 2')
+app.use('*', async (req, res) => {
   try {
     const url = req.originalUrl.replace(base, '')
-
-    console.log('999 masuk sini')
 
     /** @type {string} */
     let template
